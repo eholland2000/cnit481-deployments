@@ -1,0 +1,389 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: ./kompose convert
+      kompose.version: 1.26.0 (40646f47)
+    creationTimestamp: "2022-12-07T21:24:04Z"
+    labels:
+      io.kompose.service: dashboard
+    name: dashboard
+    namespace: default
+    resourceVersion: "850289"
+    uid: c1fb6c99-f5b7-4390-a6b2-d2164b4abad8
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.99.14.20
+    clusterIPs:
+    - 10.99.14.20
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "3000"
+      nodePort: 32390
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      io.kompose.service: dashboard
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.47.0.42
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: ./kompose convert
+      kompose.version: 1.26.0 (40646f47)
+    creationTimestamp: "2022-12-07T20:53:44Z"
+    labels:
+      io.kompose.service: data-fetcher-service
+    name: data-fetcher-service
+    namespace: default
+    resourceVersion: "847747"
+    uid: 51d75ff6-fe1f-40f7-ad8d-8b103a869d62
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.102.250.109
+    clusterIPs:
+    - 10.102.250.109
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "8081"
+      nodePort: 31404
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      io.kompose.service: data-fetcher-service
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.47.0.39
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: ./kompose convert
+      kompose.version: 1.26.0 (40646f47)
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kompose.cmd":"./kompose convert","kompose.version":"1.26.0 (40646f47)"},"creationTimestamp":null,"labels":{"io.kompose.service":"frontend-dashboard"},"name":"frontend-dashboard","namespace":"default"},"spec":{"loadBalancerIP":"10.47.0.43","ports":[{"name":"3000","port":3000,"targetPort":3000}],"selector":{"io.kompose.service":"frontend-dashboard"},"type":"LoadBalancer"},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2022-12-07T06:51:27Z"
+    labels:
+      io.kompose.service: frontend-dashboard
+    name: frontend-dashboard
+    namespace: default
+    resourceVersion: "772432"
+    uid: 5c59a753-d615-4cf1-a266-a1df3a3cfa0c
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.105.185.112
+    clusterIPs:
+    - 10.105.185.112
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    loadBalancerIP: 10.47.0.43
+    ports:
+    - name: "3000"
+      nodePort: 32498
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      io.kompose.service: frontend-dashboard
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.47.0.43
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-11-30T20:12:15Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "202"
+    uid: 27469a97-dbf8-4b7c-8af5-70b22f9bd371
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 6443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"postgres"},"name":"postgres","namespace":"default"},"spec":{"ports":[{"port":5432}],"selector":{"app":"postgres"},"type":"NodePort"}}
+    creationTimestamp: "2022-12-07T19:56:19Z"
+    labels:
+      app: postgres
+    name: postgres
+    namespace: default
+    resourceVersion: "841870"
+    uid: 3024971c-9eed-4403-94de-63ba85fc41b2
+  spec:
+    clusterIP: 10.96.166.173
+    clusterIPs:
+    - 10.96.166.173
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30071
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+    selector:
+      app: postgres
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: ./kompose convert
+      kompose.version: 1.26.0 (40646f47)
+    creationTimestamp: "2022-12-07T16:37:41Z"
+    labels:
+      io.kompose.service: stock-data-service
+    name: stock-data-service
+    namespace: default
+    resourceVersion: "824276"
+    uid: 894b75c4-fc96-4469-84c8-343fdc6c9fa6
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.106.76.51
+    clusterIPs:
+    - 10.106.76.51
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "8080"
+      nodePort: 32624
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      io.kompose.service: stock-data-service
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.47.0.40
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kompose.cmd: ./kompose convert
+      kompose.version: 1.26.0 (40646f47)
+    creationTimestamp: "2022-12-08T01:55:58Z"
+    labels:
+      io.kompose.service: user-service
+    name: user-service
+    namespace: default
+    resourceVersion: "873210"
+    uid: fce48f94-0645-49d8-b3f4-ba5a195a8d54
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.104.213.155
+    clusterIPs:
+    - 10.104.213.155
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: "8082"
+      nodePort: 31680
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      io.kompose.service: user-service
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.47.0.41
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      prometheus.io/port: "9153"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2022-11-30T20:12:17Z"
+    labels:
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    name: kube-dns
+    namespace: kube-system
+    resourceVersion: "255"
+    uid: d4ac7590-ddf1-4f75-8d8f-2b65d337cbd2
+  spec:
+    clusterIP: 10.96.0.10
+    clusterIPs:
+    - 10.96.0.10
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: dns
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    - name: metrics
+      port: 9153
+      protocol: TCP
+      targetPort: 9153
+    selector:
+      k8s-app: kube-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"k8s-app":"dashboard-metrics-scraper"},"name":"dashboard-metrics-scraper","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":8000,"targetPort":8000}],"selector":{"k8s-app":"dashboard-metrics-scraper"}}}
+    creationTimestamp: "2022-12-07T06:57:55Z"
+    labels:
+      k8s-app: dashboard-metrics-scraper
+    name: dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+    resourceVersion: "773207"
+    uid: 742f714e-fa53-4609-89d8-b40746301810
+  spec:
+    clusterIP: 10.99.57.43
+    clusterIPs:
+    - 10.99.57.43
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+      k8s-app: dashboard-metrics-scraper
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"k8s-app":"kubernetes-dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":443,"targetPort":8443}],"selector":{"k8s-app":"kubernetes-dashboard"}}}
+    creationTimestamp: "2022-12-07T06:57:54Z"
+    labels:
+      k8s-app: kubernetes-dashboard
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    resourceVersion: "773905"
+    uid: da501b24-c2a2-4c46-85e8-924939b24b94
+  spec:
+    clusterIP: 10.111.105.151
+    clusterIPs:
+    - 10.111.105.151
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 32479
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+    selector:
+      k8s-app: kubernetes-dashboard
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"webhook-service","namespace":"metallb-system"},"spec":{"ports":[{"port":443,"targetPort":9443}],"selector":{"component":"controller"}}}
+    creationTimestamp: "2022-12-07T06:21:41Z"
+    name: webhook-service
+    namespace: metallb-system
+    resourceVersion: "769814"
+    uid: 0527e447-3211-4702-aea9-13e135eca053
+  spec:
+    clusterIP: 10.107.115.171
+    clusterIPs:
+    - 10.107.115.171
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: 9443
+    selector:
+      component: controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
